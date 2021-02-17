@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 104de1ddaf158852cb4aad98f789b2f8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -165,7 +165,7 @@ PrefabInstance:
     - target: {fileID: 4367885770869591167, guid: aef1dade7b5f7110aac4d0df1f016a82,
         type: 3}
       propertyPath: m_Name
-      value: 'Bridge Obstacle '
+      value: Obstacle (1) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4367885770869591167, guid: aef1dade7b5f7110aac4d0df1f016a82,
         type: 3}
