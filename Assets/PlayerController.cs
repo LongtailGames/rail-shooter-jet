@@ -8,12 +8,19 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     // [SerializeField] private InputAction movement;
+    [Header("General settings")]
+    public ParticleSystem[] guns;
+    
+    
+    
     private PlayerControls controls;
     private float vertical, horizontal;
+    // [Header("Movement settings")]
     public float xmin, xmax, ymin, ymax;
-    [Range(1, 10)] public float translationSensitivity = 5;
-    [Range(1, 10)] public float rotationSensitivity = 3;
-
+    
+    [Range(1, 10)] public float translationSensitivity = 5, rotationSensitivity = 3;
+    
+    
     private void Awake()
     {
         controls = new PlayerControls();
@@ -27,7 +34,27 @@ public class PlayerController : MonoBehaviour
             vertical = 0;
             horizontal = 0;
         };
+        controls.PlaneControl.Fire.performed += Fired;
+        controls.PlaneControl.Fire.canceled += CancelFired;
     }
+
+    private void CancelFired(InputAction.CallbackContext obj)
+    {
+        foreach (ParticleSystem gun in guns)
+        {
+            gun.Stop();
+        }
+    }
+
+    private void Fired(InputAction.CallbackContext obj)
+    {
+        float fireRate = obj.ReadValue<float>();
+        foreach (ParticleSystem gun in guns)
+        {
+            gun.Play();
+        }
+    }
+
 
     private void Update()
     {
@@ -73,4 +100,9 @@ public class PlayerController : MonoBehaviour
     {
         controls.Disable();
     }
+}
+
+struct ScreenLimits
+{
+    
 }

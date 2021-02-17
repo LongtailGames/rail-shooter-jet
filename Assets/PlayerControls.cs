@@ -25,6 +25,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Fire"",
+                    ""type"": ""Value"",
+                    ""id"": ""22e06697-eb41-484c-8f20-07b192d1ba9f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -82,6 +90,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Steer"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eda4054c-5ec7-4b6c-ad5f-baff23d0a4d2"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -91,6 +110,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // PlaneControl
         m_PlaneControl = asset.FindActionMap("PlaneControl", throwIfNotFound: true);
         m_PlaneControl_Steer = m_PlaneControl.FindAction("Steer", throwIfNotFound: true);
+        m_PlaneControl_Fire = m_PlaneControl.FindAction("Fire", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -141,11 +161,13 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_PlaneControl;
     private IPlaneControlActions m_PlaneControlActionsCallbackInterface;
     private readonly InputAction m_PlaneControl_Steer;
+    private readonly InputAction m_PlaneControl_Fire;
     public struct PlaneControlActions
     {
         private @PlayerControls m_Wrapper;
         public PlaneControlActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Steer => m_Wrapper.m_PlaneControl_Steer;
+        public InputAction @Fire => m_Wrapper.m_PlaneControl_Fire;
         public InputActionMap Get() { return m_Wrapper.m_PlaneControl; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -158,6 +180,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Steer.started -= m_Wrapper.m_PlaneControlActionsCallbackInterface.OnSteer;
                 @Steer.performed -= m_Wrapper.m_PlaneControlActionsCallbackInterface.OnSteer;
                 @Steer.canceled -= m_Wrapper.m_PlaneControlActionsCallbackInterface.OnSteer;
+                @Fire.started -= m_Wrapper.m_PlaneControlActionsCallbackInterface.OnFire;
+                @Fire.performed -= m_Wrapper.m_PlaneControlActionsCallbackInterface.OnFire;
+                @Fire.canceled -= m_Wrapper.m_PlaneControlActionsCallbackInterface.OnFire;
             }
             m_Wrapper.m_PlaneControlActionsCallbackInterface = instance;
             if (instance != null)
@@ -165,6 +190,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Steer.started += instance.OnSteer;
                 @Steer.performed += instance.OnSteer;
                 @Steer.canceled += instance.OnSteer;
+                @Fire.started += instance.OnFire;
+                @Fire.performed += instance.OnFire;
+                @Fire.canceled += instance.OnFire;
             }
         }
     }
@@ -172,5 +200,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IPlaneControlActions
     {
         void OnSteer(InputAction.CallbackContext context);
+        void OnFire(InputAction.CallbackContext context);
     }
 }
