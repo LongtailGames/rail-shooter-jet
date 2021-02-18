@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 937621916}
   - component: {fileID: 937621915}
   - component: {fileID: 937621914}
+  - component: {fileID: 7778891946762386561}
+  - component: {fileID: 1539073020312480209}
   m_Layer: 0
   m_Name: Bridge
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -95,6 +97,51 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7778891946762386561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937621913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50ae9ba5a9b2e85e683a8c6a3088a6c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyExplosion: {fileID: 6857558105633830575, guid: 07785b0d6c0fed5d08c91fad6bcfbb6f,
+    type: 3}
+  onShot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onKill:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1539073020312480209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937621913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12be734f72bdfb90d971b4841e041b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 10
 --- !u!1001 &418676853458843280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102,6 +149,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2070568292083540480, guid: aef1dade7b5f7110aac4d0df1f016a82,
+        type: 3}
+      propertyPath: enemyExplosion
+      value: 
+      objectReference: {fileID: 6857558105633830575, guid: 3fe9ee360b00cdd6bb7f8690e1f51141,
+        type: 3}
     - target: {fileID: 1090576302136542767, guid: aef1dade7b5f7110aac4d0df1f016a82,
         type: 3}
       propertyPath: m_RootOrder
@@ -165,14 +218,20 @@ PrefabInstance:
     - target: {fileID: 4367885770869591167, guid: aef1dade7b5f7110aac4d0df1f016a82,
         type: 3}
       propertyPath: m_Name
-      value: Obstacle (1) Variant
+      value: 'Bridge Obstacle '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367885770869591167, guid: aef1dade7b5f7110aac4d0df1f016a82,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4367885770869591167, guid: aef1dade7b5f7110aac4d0df1f016a82,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2070568292083540480, guid: aef1dade7b5f7110aac4d0df1f016a82, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: aef1dade7b5f7110aac4d0df1f016a82, type: 3}
 --- !u!4 &787550763405111487 stripped
 Transform:
