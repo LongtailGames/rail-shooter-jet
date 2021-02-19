@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(ShootableEnemy))]
-public class ScoreOnShoot : MonoBehaviour
+public class ScoreOnKill : MonoBehaviour
 {
     public int score = 0;
     private ShootableEnemy shootableEnemy;
@@ -11,16 +11,14 @@ public class ScoreOnShoot : MonoBehaviour
     void Start()
     {
         shootableEnemy = GetComponent<ShootableEnemy>();
-        shootableEnemy.onShot.AddListener( HandleOnShot);
+        shootableEnemy.onKill.AddListener( HandleOnShot);
     }
 
     void HandleOnShot()
     {
         ScoreBoard score = FindObjectOfType<ScoreBoard>();
         score.IncreaseScore(this.score);
-        
         Debug.Log("Score is "+score.score);
-
     }
 
 }

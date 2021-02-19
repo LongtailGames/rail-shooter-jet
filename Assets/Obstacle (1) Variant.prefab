@@ -111,6 +111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyExplosion: {fileID: 6857558105633830575, guid: 07785b0d6c0fed5d08c91fad6bcfbb6f,
     type: 3}
+  shotExplosion: {fileID: 6857558105633830575, guid: 19abdd01aad23c1af9897ad6885cec76,
+    type: 3}
   onShot:
     m_PersistentCalls:
       m_Calls:
@@ -129,6 +131,7 @@ MonoBehaviour:
   onKill:
     m_PersistentCalls:
       m_Calls: []
+  hitPoints: 40
 --- !u!114 &1539073020312480209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,17 +171,17 @@ PrefabInstance:
     - target: {fileID: 1090576302136542767, guid: aef1dade7b5f7110aac4d0df1f016a82,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 118
+      value: 466.7
       objectReference: {fileID: 0}
     - target: {fileID: 1090576302136542767, guid: aef1dade7b5f7110aac4d0df1f016a82,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 117.82256
+      value: 104.87
       objectReference: {fileID: 0}
     - target: {fileID: 1090576302136542767, guid: aef1dade7b5f7110aac4d0df1f016a82,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 460.3
+      value: 422.3
       objectReference: {fileID: 0}
     - target: {fileID: 1090576302136542767, guid: aef1dade7b5f7110aac4d0df1f016a82,
         type: 3}
@@ -218,7 +221,7 @@ PrefabInstance:
     - target: {fileID: 4367885770869591167, guid: aef1dade7b5f7110aac4d0df1f016a82,
         type: 3}
       propertyPath: m_Name
-      value: 'Bridge Obstacle '
+      value: Obstacle (1) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4367885770869591167, guid: aef1dade7b5f7110aac4d0df1f016a82,
         type: 3}
@@ -230,6 +233,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 5388713244761391670, guid: aef1dade7b5f7110aac4d0df1f016a82,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 081c2a766acd8f144a2c700d53b59335, type: 3}
     m_RemovedComponents:
     - {fileID: -2070568292083540480, guid: aef1dade7b5f7110aac4d0df1f016a82, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: aef1dade7b5f7110aac4d0df1f016a82, type: 3}
